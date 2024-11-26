@@ -5,17 +5,15 @@ import connectToDb from '@/lib/connectToDb'
 import bcrypt from 'bcryptjs'
 import { JWT } from 'next-auth/jwt'
 
-export const {
-  auth,
-  handlers: { GET, POST },
-} = NextAuth({
+
+export const { auth, handlers: { GET, POST },} = NextAuth({
   pages: {
     error: '/register',
   },
   theme: {
     colorScheme: 'dark',
     brandColor: '#0E78F9',
-    logo: '/images/logo.png',
+    logo: '/vercel.svg',
     buttonText: '#ffffff',
   },
   providers: [
@@ -43,7 +41,6 @@ export const {
               user.password
             )
             if (isPasswordCorrect) {
-              // Return a subset of user data for the session
               return {
                 id: user.id,
                 username: user.username,
@@ -84,11 +81,12 @@ export const {
       return session
     },
     async redirect({ baseUrl }: { url: string; baseUrl: string }) {
-      return baseUrl + '/dashboard'
+      return baseUrl + '/page-user'
     },
   },
   secret: process.env.AUTH_SECRET,
   session: {
     strategy: 'jwt',
   },
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 }as any)

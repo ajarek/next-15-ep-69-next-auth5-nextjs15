@@ -20,7 +20,7 @@ const RegisterForm = () => {
 
   const router = useRouter()
 
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formData: UserWithoutId = {
       username,
@@ -41,12 +41,11 @@ const RegisterForm = () => {
   return (
     <div className="bg-[#000] text-white  p-4">
       <div className="flex justify-center p-2">
-        <Link href="/">
+        <Link href="/" className='relative w-10 h-10'>
           <Image
-            src="/images/logo.png"
+            src="vercel.svg"
             alt="logo"
-            width={40}
-            height={40}
+            fill
             className="w-full h-full object-cover  "
           />
         </Link>
@@ -83,6 +82,7 @@ const RegisterForm = () => {
           type="hidden"
           name="isAdmin"
           value={`${DEFAULT_IS_ADMIN}`}
+          onChange={()=>setIsAdmin(false)}
         />
         <Button
           className="bg-[#0E78F9] hover:bg-[#0E78F9]/90"

@@ -1,10 +1,15 @@
 import React from 'react'
 import { auth } from '@/app/api/auth/auth'
 import { redirect } from 'next/navigation'
+import { User } from '@/lib/models'
 
+type Session ={
+  user:User & {admin:boolean}
+  expires: string
+}
 const Dashboard =async () => {
-  const session = await auth()
-  if(!session){
+  const session = await auth() as Session
+  if(!session || session.user?.admin===false){
     redirect('/')
   }
   return (

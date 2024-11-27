@@ -41,12 +41,14 @@ const RegisterForm = () => {
   return (
     <div className="bg-[#000] text-white  p-4">
       <div className="flex justify-center p-2">
-        <Link href="/" className='relative w-10 h-10'>
+        <Link href="/" className='relative w-10 h-10 ' aria-label='home'>
           <Image
             src="vercel.svg"
             alt="logo"
             fill
             className="w-full h-full object-cover  "
+            sizes="(max-width: 768px) 100vw, 33vw"
+            priority
           />
         </Link>
       </div>
@@ -87,12 +89,14 @@ const RegisterForm = () => {
         <Button
           className="bg-[#0E78F9] hover:bg-[#0E78F9]/90"
           type="submit"
+          aria-label='Registration'
         >
           Registration
         </Button>
         <Link
           href="/api/auth/signin"
           className="text-white"
+          aria-label='Login'
         >
           You already have an account? <b className="text-[#0E78F9]">
           Login</b>

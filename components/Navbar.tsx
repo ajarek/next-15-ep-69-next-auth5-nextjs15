@@ -22,13 +22,14 @@ const Navbar = async () => {
         <Link
           href='/'
           className='w-[400px] h-12  flex justify-start items-center gap-2 '
+          aria-label='logo'
         >
-          <div className='w-8 h-8 bg-slate-300 flex justify-center items-center rounded-full shadow-slate-400 shadow-md '>
+          <div className='relative w-8 h-8 flex justify-center items-center   '>
             <Image
-              src='/vercel.svg'
+              src='/logo.png'
               alt='logo'
-              width={30}
-              height={30}
+              width={197}
+              height={256}
               aria-label='logo'
             />
           </div>
@@ -43,6 +44,7 @@ const Navbar = async () => {
             <Link
               href='/dashboard'
               className={` text-xl hover:text-primary focus:text-primary px-4`}
+              aria-label='dashboard'
             >
               Dashboard
             </Link>
@@ -51,6 +53,7 @@ const Navbar = async () => {
             <Link
               href='/page-user'
               className={` text-xl hover:text-primary focus:text-primary px-4`}
+              aria-label='page-user'
             >
               Page User
             </Link>

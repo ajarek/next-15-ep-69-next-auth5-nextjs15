@@ -13,7 +13,7 @@ export const { auth, handlers: { GET, POST },} = NextAuth({
   theme: {
     colorScheme: 'dark',
     brandColor: '#0E78F9',
-    logo: '/vercel.svg',
+    logo: '/logo.png',
     buttonText: '#ffffff',
   },
   providers: [
